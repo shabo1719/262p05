@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style>
+		#myCircle{width: 300px; height: 300px; background: black;
+		border-radius: 50%;}
+	</style>
+
+	<title>
+		나만의 별자리
+	</title>
+</head>
+<body>
+<div>
+	나만의 별자리 만드는중...
+</div>
+
+	<div id="myCircle">circle</div>
+
+	<input type="range" id="mySlider" min="100" max="500" value="300"
+	>
+	<!-- step="50" -->
+	<input type="range" id="mySlider2" min="0" max="100" value="50"
+	>
+	
+
+	<h1 id="myMonitor" style="font-size: 8rem;">오늘은 인풋 공부</h1>
+
+	
+	<input type="text" id="myText">
+	<button id="myOkay">확인</button>
+
+
+	<input type="color" id="fontColor">
+	<input type="color" id="backColor">
+
+
+
+<script>
+	//css일때는 단어 사이에 하이픈 썼지만 스타일은 뒷단어 첫글자 대문자로
+	//클릭하면
+ 		myOkay.onclick = function(){
+ 			myMonitor.innerHTML = myText.value;
+ 		}
+ 	//그때그때
+ 		myText.oninput = function(){
+ 			myMonitor.innerHTML = myText.value;
+ 		}
+	 	fontColor.oninput=function(){
+	 		myMonitor.style.color = fontColor.value;
+	 		myMonitor.innerHTML = fontColor.value;
+	 	}
+	 	backColor.oninput = function(){
+	 		document.body.style.background = backColor.value;
+	 		myText.value = backColor.value;
+	 	}
+	 	mySlider.oninput = function(){
+					myCircle.style.width = mySlider.value + "px";
+					myCircle.style.height = mySlider.value + "px";
+		}
+
+		mySlider2.oninput = function(){
+					myCircle.style.background = "hsl(240,100%,"+mySlider2.value+"%)";
+		}
+
+
+
+</script>
+
+
+</body>
+</html>
